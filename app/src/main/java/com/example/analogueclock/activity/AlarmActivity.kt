@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
 import android.os.Bundle
-import android.widget.DatePicker
 import android.widget.Toast
 import com.example.analogueclock.databinding.ActivityAlarmBinding
 import com.example.analogueclock.utility.AlarmReceiver
@@ -35,15 +34,15 @@ class AlarmActivity : Activity() {
             cal.set(Calendar.MINUTE, binding.pickertime.minute)
             if (binding.pickertime.hour <= 12) {
                 cal.set(Calendar.HOUR, binding.pickertime.hour)
-                cal.set(Calendar.AM_PM, Calendar.AM);
+                cal.set(Calendar.AM_PM, Calendar.AM)
             } else {
                 cal.set(Calendar.HOUR, binding.pickertime.hour - 12)
-                cal.set(Calendar.AM_PM, Calendar.PM);
+                cal.set(Calendar.AM_PM, Calendar.PM)
             }
-            cal.set(Calendar.MONTH, binding.datepicker.month);
-            cal.set(Calendar.DAY_OF_MONTH, binding.datepicker.dayOfMonth);
-            cal.set(Calendar.YEAR, binding.datepicker.year);
-            var test = binding.pickertime.hour
+            cal.set(Calendar.MONTH, binding.datepicker.month)
+            cal.set(Calendar.DAY_OF_MONTH, binding.datepicker.dayOfMonth)
+            cal.set(Calendar.YEAR, binding.datepicker.year)
+
 
             if (cal <= current) {
                 Toast.makeText(
