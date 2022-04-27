@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnalogueClock">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activity.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

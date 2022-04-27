@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AnalogueClock</string>
+    <string name="alarms">Alarms</string>
+    <string name="settings">Settings</string>
+    <string name="set_date_and_time">Set Date and Time</string>
+    <string name="set_alarm">Set Alarm</string>
+    <string name="cancel_alarm">Cancel Alarm</string>
+    <string name="hour_hand_color">Hour hand color</string>
+    <string name="your_picked_color_is">Your picked color is:</string>
+    <string name="set_new_color">Set new Color</string>
+    <string name="minutes_hand_color">Minutes hand color</string>
+    <string name="second_hand_color">Second hand color</string>
 </resources>
