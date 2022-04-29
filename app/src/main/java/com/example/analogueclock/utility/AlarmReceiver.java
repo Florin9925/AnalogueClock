@@ -1,7 +1,7 @@
 package com.example.analogueclock.utility;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
+// import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
+
 
 import android.util.Log;
 
@@ -21,23 +21,23 @@ import com.example.analogueclock.activity.AlarmActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
-    private static final int MY_NOTIFICATION_ID=1;
+    //private static final int MY_NOTIFICATION_ID=1;
     NotificationManagerCompat notificationManager;
-    Notification myNotification;
+    // Notification myNotification;
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
         AlarmActivity a = new AlarmActivity();
 
-        Intent myIntent = null;
-        myIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(""));
+        Intent myIntent;
+        myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
         context.startForegroundService(intent);
-        Log.d("Debug","on Receive");
+        Log.d("Debug", "on Receive");
 
         @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getActivity(context,
                 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Log.d("Debug","on Receive intent");
+        Log.d("Debug", "on Receive intent");
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(context, "channel_1");
 
@@ -58,7 +58,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         try {
             Thread.sleep(10000);
             rt.stop();
-        } catch (Exception e)    {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

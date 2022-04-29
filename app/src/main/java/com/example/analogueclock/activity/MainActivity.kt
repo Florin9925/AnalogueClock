@@ -11,7 +11,7 @@ import com.example.analogueclock.utility.MySurfaceView
 
 class MainActivity : Activity() {
     private lateinit var binding: ActivityMainBinding
-    var mySurfaceView: MySurfaceView? = null
+    private var mySurfaceView: MySurfaceView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
