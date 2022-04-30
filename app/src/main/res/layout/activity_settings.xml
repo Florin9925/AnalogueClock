@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_100"
     tools:context=".activity.SettingsActivity">
 
     <TextView
@@ -12,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/hour_hand_color"
-        android:textColor="@color/purple_700"
+        android:layout_marginTop="50dp"
+        android:text="@string/hour_color"
+        android:textColor="@color/blue_800"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +29,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
-        android:text="@string/your_picked_color_is"
+        android:text="@string/current_color"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hourTitle" />
@@ -41,20 +42,23 @@
         android:layout_marginStart="20dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleOne"
-        app:layout_constraintStart_toEndOf="@id/pickerTitleOne" />
+        app:layout_constraintStart_toEndOf="@id/pickerTitleOne"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleOne" />
 
     <Button
         android:id="@+id/set_color_hour_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/buttonshape"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
         android:padding="10dp"
-        android:text="@string/set_new_color"
+        android:text="@string/select_color"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleOne"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleOne" />
 
 
     <TextView
@@ -63,9 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/minutes_hand_color"
-        android:textColor="@color/purple_700"
+        android:layout_marginTop="50dp"
+        android:text="@string/minutes_color"
+        android:textColor="@color/blue_800"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pickerTitleOne">
@@ -79,16 +83,11 @@
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
-        android:text="@string/your_picked_color_is"
+        android:text="@string/current_color"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/minutesTitle" />
 
-    <!--sample view to preview selected color by user-->
-    <!--by default this has been set to darker gery-->
-    <!--this can be overridden after user chose the
-        color from color picker-->
-    <!--which has been handled in the MainActivity.java-->
     <View
         android:id="@+id/preview_selected_color_minutes"
         android:layout_width="30dp"
@@ -97,20 +96,23 @@
         android:layout_marginStart="20dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleTwo"
-        app:layout_constraintStart_toEndOf="@id/pickerTitleTwo" />
+        app:layout_constraintStart_toEndOf="@id/pickerTitleTwo"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleTwo" />
 
     <Button
         android:id="@+id/set_color_button_minutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/buttonshape"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
         android:padding="10dp"
-        android:text="@string/set_new_color"
+        android:text="@string/select_color"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleTwo"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleTwo" />
 
 
     <TextView
@@ -119,9 +121,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/second_hand_color"
-        android:textColor="@color/purple_700"
+        android:layout_marginTop="50dp"
+        android:text="@string/second_color"
+        android:textColor="@color/blue_800"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pickerTitleTwo">
@@ -135,7 +137,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
-        android:text="@string/your_picked_color_is"
+        android:text="@string/current_color"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/secondsTitle" />
@@ -148,18 +150,21 @@
         android:layout_marginStart="20dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleThree"
-        app:layout_constraintStart_toEndOf="@id/pickerTitleThree" />
+        app:layout_constraintStart_toEndOf="@id/pickerTitleThree"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleThree" />
 
     <Button
         android:id="@+id/set_color_seconds_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/buttonshape"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
         android:padding="10dp"
-        android:text="@string/set_new_color"
+        android:text="@string/select_color"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/pickerTitleThree"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pickerTitleThree" />
 </androidx.constraintlayout.widget.ConstraintLayout>

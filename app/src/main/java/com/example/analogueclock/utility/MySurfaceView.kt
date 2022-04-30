@@ -44,7 +44,7 @@ class MySurfaceView(context: Context?, private val length: Float) : SurfaceView(
                 continue
             }
             val canvas = surfaceHolder!!.lockCanvas()
-            canvas.drawColor(Color.WHITE)
+            canvas.drawColor(Color.parseColor("#CAF0F8"))
             val paint = Paint()
             val pHr = Paint()
             pHr.strokeWidth = 15f
@@ -127,7 +127,7 @@ class MySurfaceView(context: Context?, private val length: Float) : SurfaceView(
             val body =
                 RegPoly(60, 320F, (width / 2).toFloat(), (height / 2).toFloat(), canvas, paint)
             val number =
-                RegPoly(12, 360F, (width / 2).toFloat(), (height / 2).toFloat(), canvas, paint)
+                RegPoly(12, 360F, ((width-25) / 2).toFloat(), ((height+25) / 2).toFloat(), canvas, paint)
             secMarks.drawPoints()
             hourMarks.drawPoints()
             body.drawRegPoly()

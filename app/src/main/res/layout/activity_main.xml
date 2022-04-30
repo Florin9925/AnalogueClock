@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/surfaceView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/blue_100"
     tools:context=".activity.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clock_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp">
 
         <Button
             android:id="@+id/alarms"
@@ -20,16 +31,16 @@
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/buttonshape"
+            android:background="@drawable/button_shape"
             android:drawableStart="@drawable/ic_baseline_access_alarm_24"
             android:drawablePadding="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/alarms"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/settings"
@@ -38,16 +49,17 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/buttonshape"
+            android:background="@drawable/button_shape"
             android:drawableStart="@drawable/ic_baseline_settings_24"
             android:drawablePadding="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/settings"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,24 @@
 package com.example.analogueclock.activity
 
-import android.app.Activity
+
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
-import com.example.analogueclock.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.analogueclock.databinding.ActivityMainBinding
 import com.example.analogueclock.utility.MySurfaceView
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var mySurfaceView: MySurfaceView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.title = "Analogue Clock"
 
         binding.alarms.setOnClickListener {
             val myIntent = Intent(it.context, AlarmActivity::class.java)
@@ -27,8 +29,9 @@ class MainActivity : Activity() {
             startActivity(myIntent)
         }
         mySurfaceView = MySurfaceView(this, 300F)
-        val linearLayout = findViewById<View>(R.id.surfaceView) as LinearLayout
-        linearLayout.addView(mySurfaceView)
+
+        binding.clockView.addView(mySurfaceView)
+
     }
 
     override fun onResume() {

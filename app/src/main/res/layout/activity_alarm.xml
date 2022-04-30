@@ -1,74 +1,72 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="@android:color/background_light"
+    android:background="@color/blue_100"
     android:orientation="vertical"
     tools:context=".activity.AlarmActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="@string/set_date_and_time"
-            android:textColor="?attr/actionMenuTextColor"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
         <DatePicker
-            android:id="@+id/datepicker"
-            style="@android:style/TextAppearance.DeviceDefault"
+            android:id="@+id/date_picker"
             android:layout_width="wrap_content"
-            android:layout_height="286dp"
+            android:layout_height="440dp"
             android:layout_gravity="center"
             android:calendarViewShown="false"
-            android:minDate="ystem.currentTimeMillis()"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+            android:minDate="System.currentTimeMillis()"
+            android:calendarTextColor="@color/blue_900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TimePicker
-            android:id="@+id/pickertime"
+            android:id="@+id/picker_time"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:timePickerMode="spinner" />
+            android:timePickerMode="spinner"
+            app:layout_constraintTop_toBottomOf="@id/date_picker" />
 
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/picker_time">
 
             <Button
-                android:id="@+id/setalarm"
-                android:layout_width="match_parent"
+                android:id="@+id/set_alarm"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/set_alarm" />
+                android:text="@string/set_alarm"
+                app:layout_constraintEnd_toStartOf="@id/cancel"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/cancel"
-                android:layout_width="fill_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cancel_alarm" />
-        </LinearLayout>
+                android:text="@string/cancel_alarm"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/set_alarm"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/AlarmPrompt"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

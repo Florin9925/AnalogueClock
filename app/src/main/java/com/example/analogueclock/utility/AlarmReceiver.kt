@@ -1,67 +1,61 @@
-package com.example.analogueclock.utility;
+package com.example.analogueclock.utility
 
-import android.annotation.SuppressLint;
-// import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import androidx.core.app.NotificationManagerCompat
+import android.content.Intent
+import com.example.analogueclock.activity.AlarmActivity
+import android.app.PendingIntent
+import android.content.Context
+import androidx.core.app.NotificationCompat
+import com.example.analogueclock.R
+import android.media.RingtoneManager
+import android.net.Uri
+import android.util.Log
+import java.lang.Exception
 
+class AlarmReceiver : BroadcastReceiver() {
+    private var notificationManager: NotificationManagerCompat? = null
 
-import android.util.Log;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
-import com.example.analogueclock.R;
-import com.example.analogueclock.activity.AlarmActivity;
-
-public class AlarmReceiver extends BroadcastReceiver {
-
-    //private static final int MY_NOTIFICATION_ID=1;
-    NotificationManagerCompat notificationManager;
-    // Notification myNotification;
-
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        AlarmActivity a = new AlarmActivity();
-
-        Intent myIntent;
-        myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
-        context.startForegroundService(intent);
-        Log.d("Debug", "on Receive");
-
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getActivity(context,
-                0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Log.d("Debug", "on Receive intent");
-        NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(context, "channel_1");
-
+    @SuppressLint("UnspecifiedImmutableFlag")
+    override fun onReceive(context: Context, intent: Intent) {
+        val a = AlarmActivity()
+        val myIntent: Intent?
+        myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(""))
+        context.startForegroundService(intent)
+        Log.d("Debug", "on Receive")
+        val pendingIntent = PendingIntent.getActivity(
+            context,
+            0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        Log.d("Debug", "on Receive intent")
+        val notificationBuilder = NotificationCompat.Builder(context, "channel_1")
         notificationBuilder
-                .setContentTitle("Alarm")
-                .setContentText(a.getAlarmTime())
-                .setTicker("Notification!")
-                .setWhen(System.currentTimeMillis())
-                .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentIntent(pendingIntent);
-
-        notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(1, notificationBuilder.build());
-
-        Ringtone rt = RingtoneManager.getRingtone(context, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); // also try RingtoneManager.TYPE_NOTIFICATION
-        rt.play();
+            .setContentTitle("Alarm")
+            .setContentText(a.alarmTime)
+            .setTicker("Notification!")
+            .setWhen(System.currentTimeMillis())
+            .setAutoCancel(true)
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setContentIntent(pendingIntent)
+        notificationManager = NotificationManagerCompat.from(context)
+        notificationManager!!.notify(1, notificationBuilder.build())
+        val rt = RingtoneManager.getRingtone(
+            context,
+            RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+        )
+        rt.play()
         try {
-            Thread.sleep(10000);
-            rt.stop();
-        } catch (Exception e) {
-            e.printStackTrace();
+            Thread.sleep(10000)
+            rt.stop()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
     }
 
+    companion object {
+        private const val MY_NOTIFICATION_ID = 1
+    }
 }
